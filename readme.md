@@ -3,10 +3,11 @@
 Toy Robot Simulator is a react app built with redux, hooks, styled components and is tested using jest and enzyme. The design pattern loosely follows the Domain or Ducks style for file structure.
 
 [ParcelJs](https://parceljs.org/) is used as the build tool. The prod build is ready to be served on a web server
+[Styled components](https://www.styled-components.com/) Are used as a css in js solution
 
 ## Static build for broser
 
-I have included a folder with a build fit for opening directly in the browser. This can be found in /browserBuild. The only difference is that the script location is relative so as not to cause a 404. The best way to view is by running the start command
+I have included a folder with a build fit for opening directly in the browser. This can be found in /staticBuild. The only difference is that the script location is relative so as not to cause a 404. The best way to view is by running the start command
 
 ## What could be improved
 
