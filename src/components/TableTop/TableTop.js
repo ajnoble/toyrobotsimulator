@@ -18,9 +18,9 @@ export const TableTop = ({ rows, cols, robotPosition }) => {
     display: inline-grid;
     grid-template-columns: repeat(${cols}, 1fr);
     grid-template-rows: repeat(${rows}, 1fr);
-    border: 1px solid black;
+    border: 1px solid #f7c738;
     grid-gap: 1px;
-    background-color: black;
+    background-color: #f7c738;
     @media (max-width: 768px) {
       order: 2;
       grid-column: col / span 2;

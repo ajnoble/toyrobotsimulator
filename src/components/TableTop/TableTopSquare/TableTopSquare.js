@@ -5,7 +5,7 @@ import Robot from "./Robot";
 const TableTopSquareDiv = styled.div.attrs({
   className: "TableTopSquare"
 })`
-  background-color: white;
+  background-color: DodgerBlue;
   padding: 10%;
   text-align: center;
 `;

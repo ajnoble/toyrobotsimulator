@@ -20,7 +20,7 @@ export const App = () => {
     grid-column: col / span 2;
     grid-row: row;
     text-align: center;
-    color: midnightblue;
+    color: #f7c738;
   `;
   return (
     <AppWrapper>
