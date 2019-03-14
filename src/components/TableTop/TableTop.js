@@ -15,12 +15,14 @@ export const TableTop = ({ rows, cols, robotPosition }) => {
   const TableTopWrapper = styled.div.attrs({
     className: "TableTopWrapper"
   })`
+    grid-column: col / span 1;
     display: inline-grid;
     grid-template-columns: repeat(${cols}, 1fr);
     grid-template-rows: repeat(${rows}, 1fr);
     border: 1px solid #f7c738;
     grid-gap: 1px;
     background-color: #f7c738;
+    box-shadow: 2px 2px MidnightBlue;
     @media (max-width: 768px) {
       order: 2;
       grid-column: col / span 2;

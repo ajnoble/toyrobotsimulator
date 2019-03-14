@@ -3,19 +3,34 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
 const inputStyle = css`
-  padding: 0.5em;
-  margin: 0.5em;
-  border: none;
+  padding: 5px;
+  margin: 5px;
   border-radius: 3px;
-  border: 2px solid royalblue;
-  color: royalblue;
+  border: 2px solid #f7c738;
+  color: #f7c738;
+  background: none;
+  height: 20px;
+  box-shadow: 2px 2px MidnightBlue;
+  ::placeholder {
+    color: #f7c738;
+  }
 `;
 const PlaceUiWrapper = styled.div.attrs({
   className: "PlaceUi"
-})``;
+})`
+  text-align: left;
+  display: block;
+  vertical-align: top;
+  padding: 20px 20px 0;
+  @media (max-width: 768px) {
+    text-align: center;
+  }
+`;
 const Input = styled.input.attrs(({ name }) => ({
-  type: "text",
-  className: name
+  type: "number",
+  className: name,
+  max: 1,
+  maxlength: 1
 }))`
   ${inputStyle}
 `;
@@ -23,12 +38,40 @@ const DirectionDropdown = styled.select.attrs({
   className: "PlaceUi__DirectionDropdown"
 })`
   ${inputStyle}
+  height: 36px;
+`;
+const HiddenWrapper = styled.div`
+  display: none;
+`;
+const Heading = styled.h3`
+  color: #f7c738;
+  text-shadow: 2px 2px MidnightBlue;
+`;
+
+const Button = styled.button`
+  font-size: 1em;
+  padding: 5px;
+  margin: 5px;
+  border: 2px solid #f7c738;
+  border-radius: 3px;
+  background: none;
+  color: #f7c738;
+  font-family: "Righteous", cursive;
+  box-shadow: 2px 2px MidnightBlue;
+  cursor: pointer;
+  @media (max-width: 768px) {
+    width: 60%;
+  }
+`;
+
+const ErrorWrapper = styled.div`
+  color: #f7c738;
+  padding: 5px 0 0;
 `;
 
 export const PlaceUi = ({ rows, cols, placeRobot }) => {
-  console.log(rows, cols);
-  const [xPos, setXpos] = useState(null);
-  const [yPos, setYpos] = useState(null);
+  const [xPos, setXpos] = useState("");
+  const [yPos, setYpos] = useState("");
   const [direction, setDirection] = useState("");
   const [error, setError] = useState("");
   const handleClick = () => {
@@ -41,29 +84,31 @@ export const PlaceUi = ({ rows, cols, placeRobot }) => {
     if (yPos > rows - 1 || yPos < 0) {
       return setError("Invalid y coordinate");
     }
-    setError();
+    setError("");
     placeRobot(xPos, yPos, direction);
   };
   return (
     <PlaceUiWrapper>
-      <div data-testid="PlaceUi__currentPlace">
+      <HiddenWrapper data-testid="PlaceUi__currentPlace">
         {xPos &&
           yPos &&
           direction &&
           `${xPos + ", " + yPos + ", " + direction}`}
-      </div>
+      </HiddenWrapper>
+      <Heading>Reset Robot</Heading>
+      {error !== "" && <ErrorWrapper>{error}</ErrorWrapper>}
       <div>
         <Input
           data-testid="PlaceUi__Xinput"
           name="PlaceUi__Xinput"
-          placeholder="X"
-          onChange={e => setXpos(Number(e.currentTarget.value))}
+          placeholder={"X coordinate"}
+          onChange={e => setXpos(e.currentTarget.value)}
         />
         <Input
           data-testid="PlaceUi__Yinput"
           name="PlaceUi__Yinput"
-          placeholder="Y"
-          onChange={e => setYpos(Number(e.currentTarget.value))}
+          placeholder={"Y coordinate"}
+          onChange={e => setYpos(e.currentTarget.value)}
         />
         <DirectionDropdown
           data-testid="PlaceUi__DirectionDropdown"
@@ -75,11 +120,10 @@ export const PlaceUi = ({ rows, cols, placeRobot }) => {
           <option value="south">SOUTH</option>
           <option value="west">WEST</option>
         </DirectionDropdown>
-        <button data-testid="PlaceUi__Button" onClick={() => handleClick()}>
-          Place Robot
-        </button>
-        {error !== "" && <div>{error}</div>}
       </div>
+      <Button data-testid="PlaceUi__Button" onClick={() => handleClick()}>
+        Place Robot
+      </Button>
     </PlaceUiWrapper>
   );
 };

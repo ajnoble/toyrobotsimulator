@@ -9,7 +9,7 @@ export const App = () => {
   })`
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: repeat(2, [col] auto);
+    grid-template-columns: repeat(2, [col] 1fr);
     grid-template-rows: repeat(2, [row] auto);
     @media (max-width: 768px) {
       grid-template-columns: repeat(1, [col] auto);
@@ -21,6 +21,7 @@ export const App = () => {
     grid-row: row;
     text-align: center;
     color: #f7c738;
+    text-shadow: 2px 2px MidnightBlue;
   `;
   return (
     <AppWrapper>

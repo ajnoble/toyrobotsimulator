@@ -1,5 +1,5 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { shallow, mount } from "enzyme";
 import MoveUi from "./MoveUi";
 
 describe("MoveUi", () => {
@@ -10,8 +10,9 @@ describe("MoveUi", () => {
     component.unmount();
   });
   it("submits the moveRobot function onClick ", () => {
-    const button = shallow(<MoveUi {...props} />).find("button");
-    button.simulate("click");
+    const button = mount(<MoveUi {...props} />);
+    button.find("button").simulate("click");
     expect(props.moveRobot.mock.calls.length).toEqual(1);
+    button.unmount();
   });
 });
