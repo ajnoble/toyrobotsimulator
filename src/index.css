@@ -1,0 +1,7 @@
+html,
+body {
+  margin: 0;
+  font-family: "Righteous", cursive;
+  background-image: linear-gradient(to bottom, DodgerBlue, MidnightBlue);
+  height: 100%;
+}

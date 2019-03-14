@@ -26,6 +26,7 @@ const DirectionDropdown = styled.select.attrs({
 `;
 
 export const PlaceUi = ({ rows, cols, placeRobot }) => {
+  console.log(rows, cols);
   const [xPos, setXpos] = useState(null);
   const [yPos, setYpos] = useState(null);
   const [direction, setDirection] = useState("");
@@ -34,10 +35,10 @@ export const PlaceUi = ({ rows, cols, placeRobot }) => {
     if (!xPos || !yPos || !direction) {
       return setError("Please fill in all fields");
     }
-    if (xPos > cols || xPos < 0) {
+    if (xPos > cols - 1 || xPos < 0) {
       return setError("Invalid x coordinate");
     }
-    if (yPos > rows || yPos < 0) {
+    if (yPos > rows - 1 || yPos < 0) {
       return setError("Invalid y coordinate");
     }
     setError();

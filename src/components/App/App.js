@@ -14,10 +14,13 @@ export const App = () => {
     @media (max-width: 768px) {
       grid-template-columns: repeat(1, [col] auto);
     }
+    padding: 20px;
   `;
   const Heading = styled.h1`
     grid-column: col / span 2;
     grid-row: row;
+    text-align: center;
+    color: midnightblue;
   `;
   return (
     <AppWrapper>
