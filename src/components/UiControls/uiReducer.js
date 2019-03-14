@@ -15,9 +15,9 @@ const rotateRobot = rotateDirection => ({
 const rotateRobotLeft = () => rotateRobot("left");
 const rotateRobotRight = () => rotateRobot("right");
 const initialState = {
-  xPos: 0,
-  yPos: 0,
-  direction: "east"
+  xPos: "",
+  yPos: "",
+  direction: ""
 };
 
 const uiReducer = (state = initialState, action = {}) => {

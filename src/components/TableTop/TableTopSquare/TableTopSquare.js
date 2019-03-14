@@ -7,17 +7,17 @@ const TableTopSquareDiv = styled.div.attrs({
 })`
   background-color: #0856d3;
   padding: 10%;
-  text-align: center;
   position: relative;
+  text-align: center;
 `;
 const Position = styled.div`
+  color: ${props => props.theme.yellow};
+  font-family: Arial;
+  font-size: 12px;
+  padding: 5px;
   position: absolute;
   top: 0;
   left: 0;
-  font-size: 12px;
-  color: #f7c738;
-  padding: 5px;
-  font-family: Arial;
 `;
 export const TableTopSquare = ({ showRobot, direction, position }) => (
   <TableTopSquareDiv>

@@ -1,9 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import TableTop from "./TableTop";
-import { cols, rows } from "constants";
-export const TableTopContainer = ({ rows, cols, xPos, yPos, direction }) => {
-  console.log(xPos, yPos, direction);
+
+export const TableTopContainer = ({ xPos, yPos, direction }) => {
   return <TableTop robotPosition={{ xPos, yPos, direction }} />;
 };
 

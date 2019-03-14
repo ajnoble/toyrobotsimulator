@@ -20,15 +20,15 @@ const arrowStyle = css`
 `;
 const ArrowRight = styled.div`
   ${arrowStyle}
-  border-left:20px solid #f7c738;
+  border-left:20px solid ${props => props.theme.yellow};
 `;
 const ArrowLeft = styled.div`
   ${arrowStyle}
-  border-right:20px solid #f7c738;
+  border-right:20px solid ${props => props.theme.yellow};
 `;
 const Heading = styled.h3`
-  text-shadow: 2px 2px MidnightBlue;
-  color: #f7c738;
+  text-shadow: 2px 2px ${props => props.theme.darkBlue};
+  color: ${props => props.theme.yellow};
 `;
 const RotateUiWrapper = styled.div`
   text-align: center;

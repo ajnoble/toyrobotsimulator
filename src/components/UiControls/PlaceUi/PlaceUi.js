@@ -6,13 +6,13 @@ const inputStyle = css`
   padding: 5px;
   margin: 5px;
   border-radius: 3px;
-  border: 2px solid #f7c738;
-  color: #f7c738;
+  border: 2px solid ${props => props.theme.yellow};
+  color: ${props => props.theme.yellow};
   background: none;
   height: 20px;
-  box-shadow: 2px 2px MidnightBlue;
+  box-shadow: 2px 2px ${props => props.theme.darkBlue};
   ::placeholder {
-    color: #f7c738;
+    color: ${props => props.theme.yellow};
   }
 `;
 const PlaceUiWrapper = styled.div.attrs({
@@ -22,7 +22,7 @@ const PlaceUiWrapper = styled.div.attrs({
   display: block;
   vertical-align: top;
   padding: 20px 20px 0;
-  @media (max-width: 768px) {
+  @media (max-width: ${props => props.theme.breakPoint}) {
     text-align: center;
   }
 `;
@@ -44,28 +44,28 @@ const HiddenWrapper = styled.div`
   display: none;
 `;
 const Heading = styled.h3`
-  color: #f7c738;
-  text-shadow: 2px 2px MidnightBlue;
+  color: ${props => props.theme.yellow};
+  text-shadow: 2px 2px ${props => props.theme.darkBlue};
 `;
 
 const Button = styled.button`
   font-size: 1em;
   padding: 5px;
   margin: 5px;
-  border: 2px solid #f7c738;
+  border: 2px solid ${props => props.theme.yellow};
   border-radius: 3px;
   background: none;
-  color: #f7c738;
+  color: ${props => props.theme.yellow};
   font-family: "Righteous", cursive;
-  box-shadow: 2px 2px MidnightBlue;
+  box-shadow: 2px 2px ${props => props.theme.darkBlue};
   cursor: pointer;
-  @media (max-width: 768px) {
+  @media (max-width: ${props => props.theme.breakPoint}) {
     width: 60%;
   }
 `;
 
 const ErrorWrapper = styled.div`
-  color: #f7c738;
+  color: ${props => props.theme.yellow};
   padding: 5px 0 0;
 `;
 
@@ -90,10 +90,7 @@ export const PlaceUi = ({ rows, cols, placeRobot }) => {
   return (
     <PlaceUiWrapper>
       <HiddenWrapper data-testid="PlaceUi__currentPlace">
-        {xPos &&
-          yPos &&
-          direction &&
-          `${xPos + ", " + yPos + ", " + direction}`}
+        {`${xPos + ", " + yPos + ", " + direction}`}
       </HiddenWrapper>
       <Heading>Reset Robot</Heading>
       {error !== "" && <ErrorWrapper>{error}</ErrorWrapper>}

@@ -1,6 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
+
+const arrowStyle = css`
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  cursor: pointer;
+  width: 0;
+  height: 0;
+`;
+const ArrowUp = styled.div`
+  ${arrowStyle}
+  border-bottom:20px solid ${props => props.theme.yellow};
+`;
 const Button = styled.button`
   background: none};
   font-size: 1em;
@@ -8,20 +20,9 @@ const Button = styled.button`
   padding: 0 5px;
   border: none
 `;
-const arrowStyle = css`
-  width: 0;
-  height: 0;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  cursor: pointer;
-`;
-const ArrowUp = styled.div`
-  ${arrowStyle}
-  border-bottom:20px solid #f7c738;
-`;
 const Heading = styled.h3`
-  color: #f7c738;
-  text-shadow: 2px 2px MidnightBlue;
+  color: ${props => props.theme.yellow};
+  text-shadow: 2px 2px ${props => props.theme.darkBlue};
 `;
 const MoveUiWrapper = styled.div`
   text-align: center;

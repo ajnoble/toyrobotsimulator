@@ -4,7 +4,7 @@ import App from "./App";
 
 describe("App", () => {
   const app = shallow(<App />);
-  it("renders the title", () => {
+  it("renders the App", () => {
     expect(app.exists()).toBe(true);
   });
 });
