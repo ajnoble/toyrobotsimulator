@@ -16,6 +16,7 @@ I have included a folder with a build fit for opening directly in the browser. T
 2. Further unit testing coud be completed and also optimized for the PlaceUi component. Turns out using Hooks is a little difficult to test at the moment and you cant test them with enzyme at all!
 3. Create a few more low level shared components ie: buttons, headings etc
 4. Jest snapshots could be used as a baseline test for all components
+5. Typescript could be implemented
 
 ## Installation
 
