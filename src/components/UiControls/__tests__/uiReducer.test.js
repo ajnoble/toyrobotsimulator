@@ -30,13 +30,13 @@ describe("uiControlsReducer", () => {
       xPos: 4
     });
   });
-  it('should update direction to south, given initial state and rotateRobot("right") action', () => {
+  it("should update direction to south, given initial state and rotateRobotRight() action", () => {
     expect(uiControlsReducer(initialState, rotateRobotRight())).toEqual({
       ...initialState,
       direction: "south"
     });
   });
-  it('should update direction to south, given initial state and rotateRobot("left") action', () => {
+  it("should update direction to south, given initial state and rotateRobotLeft() action", () => {
     expect(uiControlsReducer(initialState, rotateRobotLeft())).toEqual({
       ...initialState,
       direction: "north"

@@ -12,7 +12,7 @@ const initialState = {
 
 const updateDirectionState = (state, rotateDirection) => ({
   ...state,
-  direction: getNewDirection(rotateDirection, state.direction)
+  ...getNewDirection(rotateDirection, state.direction)
 });
 
 const updateXandYstate = state => ({
