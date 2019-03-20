@@ -1,9 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {
-  rotateRobotLeft,
-  rotateRobotRight
-} from "components/UiControls/uiReducer";
+import { rotateRobotLeft, rotateRobotRight } from "./rotateUiActions";
 import RotateUi from "./RotateUi";
 
 export const RotateUiContainer = ({ rotateRobotLeft, rotateRobotRight }) => {

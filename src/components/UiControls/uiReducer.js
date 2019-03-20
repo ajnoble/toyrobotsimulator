@@ -1,95 +1,44 @@
-import { cols, rows, directions } from "../../constants";
-const placeRobot = (xPos, yPos, direction) => ({
-  type: "ui/placeRobot",
-  xPos,
-  yPos,
-  direction
-});
-const moveRobot = () => ({
-  type: "ui/moveRobot"
-});
-const rotateRobot = rotateDirection => ({
-  type: "ui/rotateRobot",
-  rotateDirection
-});
-const rotateRobotLeft = () => rotateRobot("left");
-const rotateRobotRight = () => rotateRobot("right");
+import { rotateRobot } from "./RotateUi/rotateUiActions";
+import { moveRobot } from "./MoveUi/moveUiActions";
+import { placeRobot } from "./PlaceUi/placeUiActions";
+import { getNewDirection } from "./RotateUi/rotateUiUtils";
+import { getAllowedMove } from "./MoveUi/moveUiUtils";
+
 const initialState = {
   xPos: "",
   yPos: "",
   direction: ""
 };
 
+const updateDirectionState = (state, rotateDirection) => ({
+  ...state,
+  direction: getNewDirection(rotateDirection, state.direction)
+});
+
+const updateXandYstate = state => ({
+  ...state,
+  ...getAllowedMove(state.direction, state.xPos, state.yPos)
+});
+
+const updateXandYandDirectionState = (state, xPos, yPos, direction) => ({
+  ...state,
+  xPos,
+  yPos,
+  direction
+});
+
 const uiReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case rotateRobot().type:
-      const currentDirectionIndex = directions.indexOf(state.direction);
-      let newDirectionIndex;
-      switch (action.rotateDirection) {
-        case "right":
-          newDirectionIndex =
-            currentDirectionIndex + 1 > directions.length - 1
-              ? 0
-              : currentDirectionIndex + 1;
-          return {
-            ...state,
-            direction: directions[newDirectionIndex]
-          };
-        case "left":
-          newDirectionIndex =
-            currentDirectionIndex - 1 < 0
-              ? directions.length - 1
-              : currentDirectionIndex - 1;
-          return {
-            ...state,
-            direction: directions[newDirectionIndex]
-          };
-        default:
-          return state;
-      }
+      const { rotateDirection } = action.payload;
+      return updateDirectionState(state, rotateDirection);
     case moveRobot().type:
-      let newPos;
-      switch (state.direction) {
-        case "north":
-          newPos = state.yPos + 1;
-          if (newPos > rows - 1) return state;
-          return {
-            ...state,
-            yPos: newPos
-          };
-        case "east":
-          newPos = state.xPos + 1;
-          if (newPos > cols - 1) return state;
-          return {
-            ...state,
-            xPos: newPos
-          };
-        case "south":
-          newPos = state.yPos - 1;
-          if (newPos < 0) return state;
-          return {
-            ...state,
-            yPos: newPos
-          };
-        case "west":
-          newPos = state.xPos - 1;
-          if (newPos < 0) return state;
-          return {
-            ...state,
-            xPos: newPos
-          };
-        default:
-          return state;
-      }
+      return updateXandYstate(state);
     case placeRobot().type:
-      return {
-        ...state,
-        xPos: Number(action.xPos),
-        yPos: Number(action.yPos),
-        direction: action.direction
-      };
+      const { xPos, yPos, direction } = action.payload;
+      return updateXandYandDirectionState(state, xPos, yPos, direction);
     default:
       return state;
   }
 };
-export { uiReducer, placeRobot, moveRobot, rotateRobotLeft, rotateRobotRight };
+export default uiReducer;

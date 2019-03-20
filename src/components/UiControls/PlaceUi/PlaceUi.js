@@ -85,7 +85,7 @@ export const PlaceUi = ({ rows, cols, placeRobot }) => {
       return setError("Invalid y coordinate");
     }
     setError("");
-    placeRobot(xPos, yPos, direction);
+    placeRobot(Number(xPos), Number(yPos), direction);
   };
   return (
     <PlaceUiWrapper>

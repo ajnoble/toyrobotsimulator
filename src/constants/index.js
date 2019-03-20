@@ -1,5 +1,5 @@
-const cols = 5;
-const rows = 5;
-const directions = ["north", "east", "south", "west"];
+const COLS = 5;
+const ROWS = 5;
+const DIRECTIONS = ["north", "east", "south", "west"];
 
-export { cols, rows, directions };
+export { COLS, ROWS, DIRECTIONS };
