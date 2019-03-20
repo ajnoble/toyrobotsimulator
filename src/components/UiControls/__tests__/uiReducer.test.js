@@ -1,7 +1,7 @@
-import uiReducer from "./uiReducer";
-import { rotateRobotLeft, rotateRobotRight } from "./RotateUi/rotateUiActions";
-import { moveRobot } from "./MoveUi/moveUiActions";
-import { placeRobot } from "./PlaceUi/placeUiActions";
+import uiReducer from "../uiReducer";
+import { rotateRobotLeft, rotateRobotRight } from "../RotateUi/rotateUiActions";
+import { moveRobot } from "../MoveUi/moveUiActions";
+import { placeRobot } from "../PlaceUi/placeUiActions";
 
 const initialState = { xPos: 0, yPos: 0, direction: "east" };
 describe("uiReducer", () => {

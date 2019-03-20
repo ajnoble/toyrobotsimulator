@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
 import { render, fireEvent, getByTestId } from "react-testing-library";
-import PlaceUi from "./PlaceUi";
+import PlaceUi from "../PlaceUi";
 
 describe("PlaceUi", () => {
   const props = { rows: 5, cols: 5, placeRobot: jest.fn() };

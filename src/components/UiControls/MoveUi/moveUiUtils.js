@@ -1,4 +1,5 @@
 import { COLS, ROWS } from "../../../constants";
+
 const getAllowedNorthCoordinate = currentYpos => {
   const newPosition = currentYpos + 1;
   if (newPosition > ROWS - 1) return currentYpos;

@@ -1,7 +1,7 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import TableTop from "./TableTop";
-import TableTopSquare from "./TableTopSquare";
+import TableTop from "../TableTop";
+import TableTopSquare from "../TableTopSquare";
 
 const getSquareWithRobotProps = component =>
   component

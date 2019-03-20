@@ -1,6 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import RotateUi from "./RotateUi";
+import RotateUi from "../RotateUi";
 
 describe("RotateUi", () => {
   const props = { rotateRobotLeft: jest.fn(), rotateRobotRight: jest.fn() };
