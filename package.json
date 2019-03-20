@@ -4,7 +4,7 @@
   "description": "A toy robot simulator",
   "scripts": {
     "start": "parcel index.pug",
-    "prod": "parcel build index.pug",
+    "prod": "NODE_ENV=production && parcel build index.pug",
     "test": "jest --watchAll --verbose"
   },
   "keywords": [
