@@ -21,18 +21,26 @@ export const PlaceUi = ({ rows, cols, placeRobot }) => {
   const [direction, setDirection] = useState("");
   const [error, setError] = useState("");
 
-  const handleClick = () => {
+  const fieldsAreValid = () => {
     if (hasntFilledInAllFields(xPos, yPos, direction)) {
-      return setError("Please fill in all fields");
+      setError("Please fill in all fields");
+      return false;
     }
     if (invalidXcoordinate(xPos, cols - 1)) {
-      return setError("Invalid x coordinate");
+      setError("Invalid x coordinate");
+      return false;
     }
     if (invalidYcoordinate(yPos, rows - 1)) {
-      return setError("Invalid y coordinate");
+      setError("Invalid y coordinate");
+      return false;
     }
     setError("");
-    placeRobot(Number(xPos), Number(yPos), direction);
+    return true;
+  };
+
+  const handleClick = () => {
+    if (fieldsAreValid())
+      return placeRobot(Number(xPos), Number(yPos), direction);
   };
 
   return (
