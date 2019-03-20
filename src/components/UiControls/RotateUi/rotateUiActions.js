@@ -1,9 +1,11 @@
-export const rotateRobot = rotateDirection => ({
+const rotateRobot = rotateDirection => ({
   type: "ui/rotateRobot",
   payload: {
     rotateDirection
   }
 });
 
-export const rotateRobotLeft = () => rotateRobot("left");
-export const rotateRobotRight = () => rotateRobot("right");
+const rotateRobotLeft = () => rotateRobot("left");
+const rotateRobotRight = () => rotateRobot("right");
+
+export { rotateRobot, rotateRobotLeft, rotateRobotRight };

@@ -1,4 +1,5 @@
 import { rotateRobot } from "../rotateUiActions";
+
 describe("rotateUiActions: rotateRobot()", () => {
   it("should create an action to rotate the robot right", () => {
     const payload = {

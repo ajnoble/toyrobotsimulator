@@ -3,15 +3,9 @@ import { connect } from "react-redux";
 import TableTop from "./TableTop";
 import { COLS, ROWS } from "../../constants";
 
-export const TableTopContainer = ({ xPos, yPos, direction }) => {
-  return (
-    <TableTop
-      cols={COLS}
-      rows={ROWS}
-      robotPosition={{ xPos, yPos, direction }}
-    />
-  );
-};
+export const TableTopContainer = ({ xPos, yPos, direction }) => (
+  <TableTop cols={COLS} rows={ROWS} robotPosition={{ xPos, yPos, direction }} />
+);
 
 const mapStateToProps = state => ({
   xPos: state.robotPosition.xPos,

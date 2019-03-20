@@ -2,9 +2,10 @@ import React from "react";
 import { mount } from "enzyme";
 import { render, fireEvent, getByTestId } from "react-testing-library";
 import PlaceUi from "../PlaceUi";
+import { COLS, ROWS } from "../../../../constants";
 
 describe("PlaceUi", () => {
-  const props = { rows: 5, cols: 5, placeRobot: jest.fn() };
+  const props = { rows: ROWS, cols: COLS, placeRobot: jest.fn() };
   it("renders the PlaceUi", () => {
     const component = mount(<PlaceUi {...props} />);
     expect(component.exists()).toBe(true);

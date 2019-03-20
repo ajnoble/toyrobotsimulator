@@ -7,6 +7,7 @@ import { COLS, ROWS } from "../../../constants";
 export const PlaceUiContainer = ({ placeRobot }) => (
   <PlaceUi rows={ROWS} cols={COLS} placeRobot={placeRobot} />
 );
+
 const mapStateToProps = state => ({
   xPos: state.robotPosition.xPos,
   yPos: state.robotPosition.yPos,

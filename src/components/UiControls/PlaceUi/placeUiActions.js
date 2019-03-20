@@ -1,4 +1,4 @@
-export const placeRobot = (xPos, yPos, direction) => ({
+const placeRobot = (xPos, yPos, direction) => ({
   type: "ui/placeRobot",
   payload: {
     xPos,
@@ -6,3 +6,5 @@ export const placeRobot = (xPos, yPos, direction) => ({
     direction
   }
 });
+
+export { placeRobot };

@@ -14,9 +14,11 @@ const getNewDirectionLeft = currentDirection => {
     : DIRECTIONS[currentDirectionindex - 1];
 };
 
-export const getNewDirection = (rotateDirection, currentDirection) =>
+const getNewDirection = (rotateDirection, currentDirection) =>
   rotateDirection === "right"
     ? getNewDirectionRight(currentDirection)
     : rotateDirection === "left"
     ? getNewDirectionLeft(currentDirection)
     : currentDirection;
+
+export { getNewDirection };

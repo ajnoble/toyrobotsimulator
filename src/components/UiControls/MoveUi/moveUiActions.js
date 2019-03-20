@@ -1,3 +1,5 @@
-export const moveRobot = () => ({
-    type: "ui/moveRobot"
-  });
+const moveRobot = () => ({
+  type: "ui/moveRobot"
+});
+
+export { moveRobot };

@@ -5,16 +5,19 @@ const getAllowedNorthCoordinate = currentYpos => {
   if (newPosition > ROWS - 1) return currentYpos;
   return newPosition;
 };
+
 const getAllowedEastCoordinate = currentXpos => {
   const newPosition = currentXpos + 1;
   if (newPosition > COLS - 1) return currentXpos;
   return newPosition;
 };
+
 const getAllowedSouthCoordinate = currentYpos => {
   const newPosition = currentYpos - 1;
   if (newPosition < 0) return currentYpos;
   return newPosition;
 };
+
 const getAllowedWestCoordinate = currentXpos => {
   const newPosition = currentXpos - 1;
   if (newPosition < 0) return currentXpos;

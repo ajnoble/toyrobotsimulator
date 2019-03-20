@@ -1,22 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { ROTATION_DEGREES } from "../../../../constants";
 
 const Robot = ({ direction }) => {
-  const rotationDegree = {
-    north: "180deg",
-    east: "-90deg",
-    south: "0deg",
-    west: "90deg"
-  };
   const RobotWrapper = styled.svg.attrs({
     className: "Robot",
     width: "40",
     height: "30",
     viewbox: "-20 -15 40 30"
   })`
-    transform: rotate(${rotationDegree[direction]});
+    transform: rotate(${ROTATION_DEGREES[direction]});
   `;
+
   return (
     <RobotWrapper>
       <g>
@@ -159,7 +155,9 @@ const Robot = ({ direction }) => {
     </RobotWrapper>
   );
 };
+
 Robot.propTypes = {
   direction: PropTypes.string.isRequired
 };
+
 export default Robot;

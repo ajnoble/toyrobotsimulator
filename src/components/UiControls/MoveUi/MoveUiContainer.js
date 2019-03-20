@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import { moveRobot } from "./moveUiActions";
 import MoveUi from "./MoveUi";
 
-export const MoveUiContainer = ({ moveRobot }) => {
-  return <MoveUi moveRobot={moveRobot} />;
-};
+export const MoveUiContainer = ({ moveRobot }) => (
+  <MoveUi moveRobot={moveRobot} />
+);
+
 const mapStateToProps = state => ({});
 
 const mapDispatchToProps = {

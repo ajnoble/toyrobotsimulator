@@ -1,4 +1,5 @@
 import { getNewDirection } from "../rotateUiUtils";
+
 describe("rotateUiUtils: getNewDirection()", () => {
   describe("rotate direction is right", () => {
     const direction = "right";
