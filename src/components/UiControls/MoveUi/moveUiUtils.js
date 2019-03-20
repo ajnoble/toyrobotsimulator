@@ -2,7 +2,7 @@ import { COLS, ROWS } from "../../../constants";
 
 const getAllowedNorthCoordinate = currentYpos => {
   const newPosition = currentYpos + 1;
-  const newPositionAllowed = newPosition < ROWS - 1 === true;
+  const newPositionAllowed = newPosition <= ROWS - 1;
   return {
     yPos: newPositionAllowed ? newPosition : currentYpos
   };
@@ -10,19 +10,19 @@ const getAllowedNorthCoordinate = currentYpos => {
 
 const getAllowedEastCoordinate = currentXpos => {
   const newPosition = currentXpos + 1;
-  const newPositionAllowed = newPosition < COLS - 1 === true;
+  const newPositionAllowed = newPosition <= COLS - 1;
   return { xPos: newPositionAllowed ? newPosition : currentXpos };
 };
 
 const getAllowedSouthCoordinate = currentYpos => {
   const newPosition = currentYpos - 1;
-  const newPositionAllowed = newPosition >= 0 === true;
+  const newPositionAllowed = newPosition >= 0;
   return { yPos: newPositionAllowed ? newPosition : currentYpos };
 };
 
 const getAllowedWestCoordinate = currentXpos => {
   const newPosition = currentXpos - 1;
-  const newPositionAllowed = newPosition >= 0 === true;
+  const newPositionAllowed = newPosition >= 0;
   return { xPos: newPositionAllowed ? newPosition : currentXpos };
 };
 
