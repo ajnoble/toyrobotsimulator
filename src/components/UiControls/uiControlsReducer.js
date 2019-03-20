@@ -27,7 +27,7 @@ const updateXandYandDirectionState = (state, xPos, yPos, direction) => ({
   direction
 });
 
-const uiReducer = (state = initialState, action = {}) => {
+const uiControlsReducer = (state = initialState, action = {}) => {
   switch (action.type) {
     case rotateRobot().type:
       const { rotateDirection } = action.payload;
@@ -42,4 +42,4 @@ const uiReducer = (state = initialState, action = {}) => {
   }
 };
 
-export default uiReducer;
+export default uiControlsReducer;

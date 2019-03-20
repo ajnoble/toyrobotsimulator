@@ -1,16 +1,16 @@
-import uiReducer from "../uiReducer";
+import uiControlsReducer from "../uiControlsReducer";
 import { rotateRobotLeft, rotateRobotRight } from "../RotateUi/rotateUiActions";
 import { moveRobot } from "../MoveUi/moveUiActions";
 import { placeRobot } from "../PlaceUi/placeUiActions";
 
 const initialState = { xPos: 0, yPos: 0, direction: "east" };
 
-describe("uiReducer", () => {
+describe("uiControlsReducer", () => {
   it("returns the initial state given no action", () => {
-    expect(uiReducer(initialState, undefined)).toEqual(initialState);
+    expect(uiControlsReducer(initialState, undefined)).toEqual(initialState);
   });
   it("should update position, given initial state and placeRobot(1, 3, 'north') action", () => {
-    expect(uiReducer(initialState, placeRobot(1, 3, "north"))).toEqual({
+    expect(uiControlsReducer(initialState, placeRobot(1, 3, "north"))).toEqual({
       ...initialState,
       xPos: 1,
       yPos: 3,
@@ -18,26 +18,26 @@ describe("uiReducer", () => {
     });
   });
   it("should update position, given initial state and moveRobot() action", () => {
-    expect(uiReducer(initialState, moveRobot())).toEqual({
+    expect(uiControlsReducer(initialState, moveRobot())).toEqual({
       ...initialState,
       xPos: 1
     });
   });
   it("should not update position, given xPos is 4 and robot is facing east and moveRobot() action", () => {
     const updatedState = { xPos: 4, yPos: 0, direction: "east" };
-    expect(uiReducer(updatedState, moveRobot())).toEqual({
+    expect(uiControlsReducer(updatedState, moveRobot())).toEqual({
       ...updatedState,
       xPos: 4
     });
   });
   it('should update direction to south, given initial state and rotateRobot("right") action', () => {
-    expect(uiReducer(initialState, rotateRobotRight())).toEqual({
+    expect(uiControlsReducer(initialState, rotateRobotRight())).toEqual({
       ...initialState,
       direction: "south"
     });
   });
   it('should update direction to south, given initial state and rotateRobot("left") action', () => {
-    expect(uiReducer(initialState, rotateRobotLeft())).toEqual({
+    expect(uiControlsReducer(initialState, rotateRobotLeft())).toEqual({
       ...initialState,
       direction: "north"
     });
