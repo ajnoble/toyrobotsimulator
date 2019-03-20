@@ -8,8 +8,8 @@ const getNewDirectionRight = currentDirection => {
 };
 const getNewDirectionLeft = currentDirection => {
   const currentDirectionindex = DIRECTIONS.indexOf(currentDirection);
-  return currentDirectionindex + 1 > DIRECTIONS.length - 1
-    ? DIRECTIONS.length - 1
+  return currentDirectionindex - 1 < 0
+    ? DIRECTIONS[DIRECTIONS.length - 1]
     : DIRECTIONS[currentDirectionindex - 1];
 };
 
