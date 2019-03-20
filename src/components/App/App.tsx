@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import TableTop from "components/TableTop";
 import UiControls from "components/UiControls";
 import { ThemeProvider } from "styled-components";

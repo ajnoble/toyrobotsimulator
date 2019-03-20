@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 import { shallow, mount } from "enzyme";
 import TableTop from "../TableTop";
 import TableTopSquare from "../TableTopSquare";
