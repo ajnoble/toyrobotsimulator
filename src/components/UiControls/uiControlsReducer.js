@@ -15,7 +15,7 @@ const updateDirectionState = (state, rotateDirection) => ({
   ...getNewDirection(rotateDirection, state.direction)
 });
 
-const updateXandYstate = state => ({
+const updateXorYstate = state => ({
   ...state,
   ...getAllowedMove(state.direction, state.xPos, state.yPos)
 });
@@ -33,7 +33,7 @@ const uiControlsReducer = (state = initialState, action = {}) => {
       const { rotateDirection } = action.payload;
       return updateDirectionState(state, rotateDirection);
     case moveRobot().type:
-      return updateXandYstate(state);
+      return updateXorYstate(state);
     case placeRobot().type:
       const { xPos, yPos, direction } = action.payload;
       return updateXandYandDirectionState(state, xPos, yPos, direction);

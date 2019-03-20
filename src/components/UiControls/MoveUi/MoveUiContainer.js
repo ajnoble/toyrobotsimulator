@@ -7,7 +7,7 @@ export const MoveUiContainer = ({ moveRobot }) => (
   <MoveUi moveRobot={moveRobot} />
 );
 
-const mapStateToProps = state => ({});
+const mapStateToProps = () => ({});
 
 const mapDispatchToProps = {
   moveRobot: moveRobot

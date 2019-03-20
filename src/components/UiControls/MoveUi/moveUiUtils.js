@@ -2,46 +2,40 @@ import { COLS, ROWS } from "../../../constants";
 
 const getAllowedNorthCoordinate = currentYpos => {
   const newPosition = currentYpos + 1;
-  if (newPosition > ROWS - 1) return currentYpos;
-  return newPosition;
+  const newPositionAllowed = newPosition < ROWS - 1 === true;
+  return {
+    yPos: newPositionAllowed ? newPosition : currentYpos
+  };
 };
 
 const getAllowedEastCoordinate = currentXpos => {
   const newPosition = currentXpos + 1;
-  if (newPosition > COLS - 1) return currentXpos;
-  return newPosition;
+  const newPositionAllowed = newPosition < COLS - 1 === true;
+  return { xPos: newPositionAllowed ? newPosition : currentXpos };
 };
 
 const getAllowedSouthCoordinate = currentYpos => {
   const newPosition = currentYpos - 1;
-  if (newPosition < 0) return currentYpos;
-  return newPosition;
+  const newPositionAllowed = newPosition >= 0 === true;
+  return { yPos: newPositionAllowed ? newPosition : currentYpos };
 };
 
 const getAllowedWestCoordinate = currentXpos => {
   const newPosition = currentXpos - 1;
-  if (newPosition < 0) return currentXpos;
-  return newPosition;
+  const newPositionAllowed = newPosition >= 0 === true;
+  return { xPos: newPositionAllowed ? newPosition : currentXpos };
 };
 
 export const getAllowedMove = (direction, xPos, yPos) => {
   switch (direction) {
     case "north":
-      return {
-        yPos: getAllowedNorthCoordinate(yPos)
-      };
+      return getAllowedNorthCoordinate(yPos);
     case "east":
-      return {
-        xPos: getAllowedEastCoordinate(xPos)
-      };
+      return getAllowedEastCoordinate(xPos);
     case "south":
-      return {
-        yPos: getAllowedSouthCoordinate(yPos)
-      };
+      return getAllowedSouthCoordinate(yPos);
     case "west":
-      return {
-        xPos: getAllowedWestCoordinate(xPos)
-      };
+      return getAllowedWestCoordinate(xPos);
     default:
       return {};
   }
