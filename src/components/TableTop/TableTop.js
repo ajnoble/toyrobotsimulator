@@ -30,12 +30,6 @@ export const TableTop = ({ rows, cols, robotPosition }) => {
   );
 };
 
-TableTop.defaultProps = {
-  rows: 5,
-  cols: 5,
-  robotPosition: { xPos: 0, yPos: 0, direction: "east" }
-};
-
 TableTop.propTypes = {
   rows: PropTypes.number,
   cols: PropTypes.number,
