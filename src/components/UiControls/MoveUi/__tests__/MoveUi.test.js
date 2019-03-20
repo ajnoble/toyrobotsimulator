@@ -1,8 +1,8 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
-import MoveUi from "./MoveUi";
+import MoveUi from "../MoveUi";
 
-describe("MoveUi", () => {
+describe("moveUiUtils", () => {
   const props = { moveRobot: jest.fn() };
   it("renders the MoveUi", () => {
     const component = shallow(<MoveUi {...props} />);
