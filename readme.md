@@ -20,6 +20,7 @@ Toy Robot Simulator is a react app built with redux, hooks, styled components an
 ## Design decisions
 
 - 2 top level components or domains: TableTop and UiControls
+- Actions, Css and Utils have been split out into seperate modules per component
 
 ### TableTop
 
@@ -31,7 +32,7 @@ Toy Robot Simulator is a react app built with redux, hooks, styled components an
 ### UiControls
 
 - UiControls renders the 3 ui components, Place, Rotate and Move.
-- It holds the reducer and actions for udating state based on user input
+- It holds the ui controls reducer which updates the robotPosition in the state
 - PlaceUi component uses hooks for local state of the user input
 - Each ui component dispatch's actions for updating state
 
