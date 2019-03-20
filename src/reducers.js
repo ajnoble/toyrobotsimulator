@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import uiReducer from "components/UiControls/uiReducer";
+import uiControlsReducer from "components/UiControls/uiControlsReducer";
 
 export default combineReducers({
-  robotPosition: uiReducer
+  robotPosition: uiControlsReducer
 });
